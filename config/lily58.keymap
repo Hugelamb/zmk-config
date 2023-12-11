@@ -9,6 +9,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
+// Home row mods macros
+#define 0 
+
 / {
     keymap {
         compatible = "zmk,keymap";
