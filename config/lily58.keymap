@@ -13,8 +13,8 @@
 // Layer defines
 #define DEF 0
 #define NAV 1       // arrow keys, PGUP/PGDN, back, forward, window swappers, 
-#define FUN 2       
-#define NUM 3       // Numpad layer
+#define NUM 2       // Numpad layer
+#define FUN 3       
 #define SYS 4
 #define SYM 5       // Commonly used symbols, such as theta, omega, beta, alpha, etc
 #define MOU 6
@@ -96,12 +96,10 @@
 &trans       &trans       &trans    &trans   &trans    &trans   &trans
                                               &trans            &trans       &trans    &trans   &trans    &trans    &trans    &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        raise_layer {
-            display-name = "SYM";
+        num_layer {
+            display-name = "NUM";
 // ------------------------------------------------------------------------------------------------------------
 // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
 // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
