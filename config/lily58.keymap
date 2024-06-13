@@ -19,13 +19,53 @@
 #define SYM 5       // Commonly used symbols, such as theta, omega, beta, alpha, etc
 #define MOU 6
 
+// Desktop window management and tab nav shortcuts
+#define D_LT   LC(LG(LEFT))     // move desktop left
+#define D_RT   LC(LG(RIGHT))    // move desktop right       
+#define TAB_RT LC(TAB)          // tab switcher forward/right
+#define TAB_LT LC(LS(TAB))      // tab switcher left/back
+//Extra key binds
+#define SWP_POS LB3
+// behaviour customization
+&mt {
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+};
+
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+};
+
+&caps_word {
+    continue-list = <UNDERSCORE MINUS BSPC DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
+};
 // Home row mods macros
 
 / {
+    behaviors {
+        // Swapper function (may require zmk PR#1366)
+        swapper: swapper {
+            compatible = "zmk,behaviour-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+            ignored-key-positions = <SWP_POS>; 
+        };
+    // tap: backspace | lshft + tap: delete | rshft + tap: shift-delete
+        bs_del: backspace_delete {
+            compatible = "zmk, behaviour-mod-morph"
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <MOD_RSFT>;
+        };
+
+
+    }
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "DEF";
 // ------------------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
@@ -33,15 +73,16 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
 //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
             bindings = <
-&none       &none       &none       &none       &none       &none                                   &none       &none       &none       &none       &none           &none
-&none       &kp Q       &kp W       &kp E       &kp R       &kp T                                   &kp Y       &kp U       &kp I       &kp O       &kp P           &none
-&none       &mt LGUI A  &mt LALT S  &mt LSHFT D &mt LCTRL F &kp G                                   &kp H       &mt LCTRL J &mt RSHFT K &mt LALT L  &mt LGUI SEMI   &none
-&none       &kp Z       &kp X       &kp C       &kp V       &kp B       &kp LBKT        &kp RBKT    &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH        &none
-                                    &none       &none       &mo NAV     &kp SPACE       &kp RET     &mo FUN     &none       &none
+&none       &none       &none       &none       &none       &none                                       &none       &none       &none       &none       &none           &none
+&none       &kp Q       &kp W       &kp E       &kp R       &kp T                                       &kp Y       &kp U       &kp I       &kp O       &kp P           &none
+&none       &mt LGUI A  &mt LALT S  &mt LCTRL D &mt LSHFT F &kp G                                       &kp H       &mt RSHFT J &mt LCTRL K &mt LALT L  &mt LGUI SEMI   &none
+&none       &kp Z       &kp X       &kp C       &kp V       &kp B           &kp LBKT        &kp RBKT    &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH        &none
+                                    &none       &none       &mt LCTRL ESC   &lt NAV SPACE   &lt SYM RET     &bs_del      &none       &none
             >;
         };
 
-        lower_layer {
+        nav_layer {
+            display-name = "NAV";
 // ------------------------------------------------------------------------------------------------------------
 // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
 // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
@@ -49,10 +90,10 @@
 // |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
 //                     |      |      |      |        |  |       |      |       |       |
             bindings = <
-&bt BT_CLR &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                 &trans    &trans    &trans          &trans    &trans    &trans
-&kp F1     &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9          &kp F10   &kp F11   &kp F12
-&kp GRAVE  &kp EXCL         &kp AT            &kp HASH          &kp DOLLAR   &kp PRCNT                    &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &kp TILDE
-&trans     &ext_power EP_ON &ext_power EP_OFF &ext_power EP_TOG &trans       &trans    &trans   &trans    &trans    &kp MINUS &kp KP_PLUS     &kp LBRC  &kp RBRC  &kp PIPE
+&trans      &trans       &trans     &trans      &trans      &trans                                  &trans      &trans       &trans     &trans      &trans          &trans
+&trans      &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9          &kp F10   &kp F11   &trans
+&trans      &kp EXCL         &kp AT            &kp HASH          &kp DOLLAR   &kp PRCNT                    &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &trans
+&trans       &trans       &trans    &trans   &trans    &trans   &trans
                                               &trans            &trans       &trans    &trans   &trans    &trans    &trans    &trans
             >;
 
@@ -60,6 +101,7 @@
         };
 
         raise_layer {
+            display-name = "SYM";
 // ------------------------------------------------------------------------------------------------------------
 // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
 // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
@@ -67,10 +109,10 @@
 // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
 //                     |      |      |      |        |  |       |      |       |       |
             bindings = <
-&trans    &trans &trans &trans  &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
-&kp GRAVE &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7    &kp N8    &kp N9   &kp N0    &trans
-&kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &trans      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
-&kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &kp BSLH
+&trans      &trans       &trans     &trans      &trans      &trans                                  &trans      &trans       &trans     &trans      &trans          &trans
+&trans      &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7    &kp N8    &kp N9   &kp N0    &trans
+&trans      &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &trans      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
+&trans      &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &trans
                         &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans
             >;
 
