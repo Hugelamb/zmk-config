@@ -98,7 +98,7 @@
 &none       &none       &none       &none       &none       &none                                       &none       &none       &none       &none       &none           &none
 &none       &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT                                   &kp SLASH   &kp N7      &kp N8      &kp N9      &kp COMMA       &none       
 &none       &kp PLUS    &kp EQUAL   &kp UNDER   &kp MINUS   &kp CARET                                   &kp N0      &kp N4      &kp N5      &kp N6      &kp DOT         &none
-&none       &mo FUN     &inv_qm     &kp STAR    &kp AMPS    &none           &none           &none       &kp SEMI    &kp N1      &kp N2      &kp N3      &kp SLASH       &none
+&none       &mo FUN     &kp PIPE     &kp STAR    &kp AMPS    &none           &none           &none       &kp SEMI    &kp N1      &kp N2      &kp N3      &kp SLASH       &none
                                     &none       &none       &kp BSPC        &trans          &trans      &bs_del    &none   &none                               
             >;
         };
