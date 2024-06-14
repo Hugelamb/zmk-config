@@ -1,0 +1,7 @@
+build.*
+bootloader.*
+app.*
+modules.*
+tools.*
+zephyr.*
+zmk-config-2.*
