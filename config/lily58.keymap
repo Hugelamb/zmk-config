@@ -85,7 +85,7 @@
             display-name = "COL";
 			bindings = <
 &none       &none       &none       &none       &none       &none                                       &none       &none       &none       &none       &none           &none
-&none       &kp Q       &kp W       &kp F       &kp P       &kp B                                       &kp J       &kp L       kp U        &kp Y       &kp SEMI        &none
+&none       &kp Q       &kp W       &kp F       &kp P       &kp B                                       &kp J       &kp L       &kp U        &kp Y       &kp SEMI        &none
 &none       &mt LGUI A  &mt LALT R  &mt LCTRL S &mt LSHFT T &kp G                                       &kp M       &mt RSHFT N &mt LCTRL E &mt LALT I  &mt LGUI O      &none 
 &none       &kp Z       &kp X       &kp C       &kp D       &kp V           &none           &none       &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH        &none
                                     &none       &none       &mt LCTRL ESC   &lt NAV SPC     &lt SYM RET &bs_del     &none       &none
