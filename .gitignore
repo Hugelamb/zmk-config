@@ -5,3 +5,4 @@ modules.*
 tools.*
 zephyr.*
 zmk-config-2.*
+build/left/app/libapp.a
