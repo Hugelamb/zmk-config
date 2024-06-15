@@ -1,8 +1,8 @@
 build/
-bootloader.*
-app.*
-modules.*
-tools.*
-zephyr.*
-zmk-config-2.*
-build/left/app/libapp.a
+bootloader/
+app/
+modules/
+tools/
+zephyr/
+zmk-config-2/
+zmk-helpers-main/
