@@ -5,4 +5,5 @@ modules/
 tools/
 zephyr/
 zmk-config-2/
-zmk-helpers-main/
+zmk-helpers/
+build.md
