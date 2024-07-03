@@ -198,7 +198,7 @@ ZMK_BEHAVIOR(hmr, hold_tap,
 &none       &kp Q       &kp W       &kp E           &kp R           &kp T                                       &kp Y           &kp U           &kp I       &kp O           &kp P           &none
 &none       &kp A       &kp S       &kp D           &kp F           &kp G                                       &kp H           &kp J           &kp K       &kp L           &kp SEMI        &none
 &none       &kp Z       &kp X       &kp C           &kp V           &kp B           &none           &none       &kp N           &kp M           &kp COMMA   &kp DOT         &kp FSLH        &none
-                                    &none           &none           &mt LCTRL ESC   &lt NAV SPACE   &lt SYM RET &bs_del         &none           &none
+                                    &none           &none           &mt LCTRL ESC   &kp SPACE   &kp RET         &bs_del         &none           &none
             >;
         };
 
