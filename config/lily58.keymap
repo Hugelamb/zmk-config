@@ -34,7 +34,7 @@
 #define NAV 3       // arrow keys, PGUP/PGDN, back, forward, window swappers, 
 #define FUN 4       
 #define HLW 5       // Hollow Knight Keybinds
-#define GME 6       // For generic game keybinds
+#define STS 6       // For generic game keybinds
 // #define SYS 5
 // #define MOU 6
 
@@ -185,9 +185,9 @@ ZMK_BEHAVIOR(hmr, hold_tap,
             display-name = "FUN";
             bindings = <
 &trans      &trans      &trans      &trans      &trans      &trans                              &trans          &trans          &trans              &trans              &trans          &trans
-&trans      &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                              &out OUT_USB    &out OUT_BLE    &to DEF             &to COL             &to HLW           &none
+&trans      &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                              &out OUT_USB    &out OUT_BLE    &to DEF             &to COL             &to HLW         &none
 &trans      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10                             &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2        &bt BT_SEL 3        &bt BT_SEL 4    &none
-&trans      &none       &kp D_LT    &kp D_RT    &kp F11     &kp F12     &none       &none       &none           &kp CAPS        &ext_power EP_ON    &ext_power EP_OFF   &none           &none
+&trans      &none       &kp D_LT    &kp D_RT    &kp F11     &kp F12     &none       &none       &none           &kp CAPS        &ext_power EP_ON    &ext_power EP_OFF   &to STS           &none
                                     &trans      &trans      &none       &trans      &trans      &trans          &trans          &kp SPACE 
             >;
 
@@ -215,7 +215,7 @@ ZMK_BEHAVIOR(hmr, hold_tap,
             >;
         };
 
-//         sys_layer {
+//         sys_layer {ul
 //             display-name = "SYS";
 //             bindings = <
 // &kp LA(F4)  &kp TAB_LT  &kp TAB_RT      &kp LC(F4)      &kp C_VOL_UP            &kp INS         &kp PG_DN    &kp UP       &kp PG_UP    &kp C_AL_CALC 
