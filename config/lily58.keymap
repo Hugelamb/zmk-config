@@ -146,22 +146,29 @@ ZMK_BEHAVIOR(hmr, hold_tap,
         cole_layer {
             display-name = "COL";
 			bindings = <
-&none       &none       &none       &none       &none       &none                                       &none       &none       &none       &none       &none           &none
-&none       &kp Q       &kp W       &kp F       &kp P       &kp B                                       &kp J       &kp L       &kp U        &kp Y       &kp SEMI        &none
-&none       &mt LGUI A  &mt LALT R  &mt LCTRL S &mt LSHFT T &kp G                                       &kp M       &mt RSHFT N &mt LCTRL E &mt LALT I  &mt LGUI O      &none 
-&none       &kp Z       &kp X       &kp C       &kp D       &kp V           &none           &none       &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH        &none
-                                    &none       &none       &mt LCTRL ESC   &lt NAV SPC     &lt SYM RET &bs_del     &none       &none
+&none       &none       &none       &none       	&none       	&none                                       &none       &none       &none       &none       &none           &none
+&none       &kp Q       &kp W       &kp F		&kp P       	&kp B                                       &kp J       &kp L       &kp U        &kp Y       &kp SEMI        &none
+&none       &hml LGUI A &hml LALT R &hml LCTRL S    	&hml LSHFT T	&kp G                                       &kp H       &hmr RSHFT N    &hmr LCTRL E    &hmr LALT I &hmr LGUI O &none
+&none       &kp Z       &kp X       &kp C       	&kp D       	&kp V           &none           &none       &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH        &none
+                                    &none       	&none       	&mt LCTRL ESC   &lt NAV SPC     &lt SYM RET &bs_del     &none       &none
 			>;
         };
 
         symbol_layer {
             display-name = "SYM";
+	    
+// ------------------------------------------------------------------------------------------------------------
+// |       |	 |     |      |      |      |      		|      |       |       |      |       |	      |
+// |       |  F2 |  F3 |  F4  |  F5  |  %   |                   |  /   |   7   |   8   |  9   |   `   |       |
+// |       |  +  |  =  |   _  |  -   |  ^   |                   |  0   |   4   |   5   |  6   |   .   |       |
+// |       |  '  | "|" |   *  |  &   |  "   |        |  |       |  ;   |   1   |   2   |  3   |   \   |       |
+//                     |      |      | BSPC |        |  |       | BSPC |       |       |
             bindings = <
-&none       &none       &none       &none       &none       &none                                       &none       &none       &none       &none       &none           &none
-&none       &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT                                   &kp SLASH   &kp N7      &kp N8      &kp N9      &kp APOSTROPHE       &none       
-&none       &kp PLUS    &kp EQUAL   &kp UNDER   &kp MINUS   &kp CARET                                   &kp N0      &kp N4      &kp N5      &kp N6      &kp DOT         &none
-&none       &mo FUN     &kp PIPE     &kp STAR    &kp AMPS    &none           &none           &none       &kp SEMI    &kp N1      &kp N2      &kp N3      &kp BSLH       &none
-                                    &none       &none       &kp BSPC        &trans          &trans      &bs_del    &none   &none                               
+&none       &none       &none       &none       &none       &none                                   &none       &none       &none       &none       &none           &none
+&none       &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT                               &kp SLASH   &kp N7      &kp N8      &kp N9      &kp GRAVE	&none       
+&none       &kp PLUS    &kp EQUAL   &kp UNDER   &kp MINUS   &kp CARET                               &kp N0      &kp N4      &kp N5      &kp N6      &kp DOT         &none
+&none       &kp APOS    &kp PIPE     &kp STAR   &kp AMPS    &kp DQT	&none           &none       &kp SEMI    &kp N1      &kp N2      &kp N3      &kp BSLH	&none
+                                    &none       &none       &kp BSPC    &trans          &trans      &bs_del    &none   &none                               
             >;
         };
 
